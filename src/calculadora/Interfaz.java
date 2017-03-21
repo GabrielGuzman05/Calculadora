@@ -14,36 +14,38 @@ public class Interfaz {
     static Calculadora myCalculadora = new Calculadora();
     public static void main(String[] args) {
         System.out.println("Ingrese dos numeros");
-        double n1=0;
-        double n2=0;
-        try{
-            Scanner leer = new Scanner(System.in);
-            n1=leer.nextDouble();
-        }catch(InputMismatchException e){
-        
-        }
-        try{
-            Scanner leer = new Scanner(System.in);
-            n1=leer.nextDouble();
-        }catch(InputMismatchException e){
-        
-        }
-        myCalculadora.setNum1(n1);
-        myCalculadora.setNum2(n2);
+        myCalculadora.setNum1(enterNumber());
+        myCalculadora.setNum2(enterNumber());
         
         System.out.println("Ingrese que opercaion quiere hacer");
         System.out.println("1 para suma - 2 para resta");
         System.out.println("3 para dividir - 4 para multiplicar");
         
         int option=0;
-        try{
-            Scanner leer = new Scanner(System.in);
-            option=leer.nextInt();
-        }catch(InputMismatchException e){
-        
-        }
-        String resultado="El resultado es ";
-        switch(option){
+        option=chooseOperation();
+        String resultado="El resultado es "+callOperation(option);
+        System.out.println(resultado);
+    }
+    
+    public static int chooseOperation(){
+        int option=0;
+        boolean error;
+        do{
+            error=false;
+            try{
+                Scanner leer = new Scanner(System.in);
+                option=leer.nextInt();
+            }catch(InputMismatchException e){
+                error=true;
+                System.out.println("Error - Por favor ingrese nuevamente el numero");
+            }
+        }while(error);
+        return option;
+    }
+    
+    public static String callOperation(int i){
+        String resultado="";
+        switch(i){
             case 1:
                 resultado+=myCalculadora.sumar();
                 break;
@@ -53,13 +55,33 @@ public class Interfaz {
                 break;    
         
             case 3:
-                resultado+=myCalculadora.dividir();
+                if(myCalculadora.getNum2()==0){
+                    resultado="Error - Division por 0 no aceptada";
+                }else{
+                    resultado+=myCalculadora.dividir();
+                }
                 break;
                 
             case 4:
                 resultado+=myCalculadora.multiplicar();
                 break;
         }
-        System.out.println(resultado);
+        return resultado;
+    }
+    
+    public static double enterNumber(){
+        double numero=0;
+        boolean error;
+        do{
+            error=false;
+            try{
+                Scanner leer = new Scanner(System.in);
+                numero=leer.nextDouble();
+            }catch(InputMismatchException e){
+                error=true;
+                System.out.println("Error - Por favor ingrese nuevamente el numero");
+            }
+        }while(error);
+        return numero;
     }
 }
