@@ -17,9 +17,6 @@ public class MaquinaPGA {
     double PGA;
     int THS;
     Calculadora myCalculadora = new Calculadora();
-
-    public MaquinaPGA() {
-    }
     
     public void iniciar(){
         setDatos(setTotalAsignaturas());
@@ -32,16 +29,16 @@ public class MaquinaPGA {
         promedios = new double[n];
         horasAsignaturas= new double[n];
         for(int i=0;i<n;i++){
-            System.out.println("Ingrese el promedio de la asignatura numero "+i);
-            double a=ingresarDato();
+            System.out.println("Ingrese el promedio de la asignatura numero "+(i+1));
+            double a=ingresarDatoDecimal();
             promedios[i]=a;
-            System.out.println("Ingrese las horas de la asignatura numero "+i);
-            double b=ingresarDato();
+            System.out.println("Ingrese las horas de la asignatura numero "+(i+1));
+            double b=ingresarDatoEntero();
             horasAsignaturas[i]=b;
         }
     }
     
-    public double ingresarDato(){
+    public double ingresarDatoDecimal(){
         double numero=0;
         boolean error;
         do{
@@ -49,6 +46,22 @@ public class MaquinaPGA {
             try{
                 Scanner leer = new Scanner(System.in);
                 numero=leer.nextDouble();
+            }catch(InputMismatchException e){
+                error=true;
+                System.out.println("Error - Por favor ingrese nuevamente el numero");
+            }
+        }while(error);
+        return numero;
+    }
+    
+    public double ingresarDatoEntero(){
+        int numero=0;
+        boolean error;
+        do{
+            error=false;
+            try{
+                Scanner leer = new Scanner(System.in);
+                numero=leer.nextInt();
             }catch(InputMismatchException e){
                 error=true;
                 System.out.println("Error - Por favor ingrese nuevamente el numero");
