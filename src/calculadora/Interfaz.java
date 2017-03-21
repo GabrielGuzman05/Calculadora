@@ -12,18 +12,18 @@ import java.util.InputMismatchException;
  */
 public class Interfaz {
     static Calculadora myCalculadora = new Calculadora();
-    public static void main(String[] args) {
+    public static void iniciar() {
         System.out.println("Ingrese dos numeros");
         myCalculadora.setNum1(enterNumber());
         myCalculadora.setNum2(enterNumber());
         
-        System.out.println("Ingrese que opercaion quiere hacer");
+        System.out.println("Ingrese que opercion quiere hacer");
         System.out.println("1 para suma - 2 para resta");
         System.out.println("3 para dividir - 4 para multiplicar");
         
         int option=0;
         option=chooseOperation();
-        String resultado="El resultado es "+callOperation(option);
+        String resultado=callOperation(option);
         System.out.println(resultado);
     }
     
@@ -39,7 +39,7 @@ public class Interfaz {
                 error=true;
                 System.out.println("Error - Por favor ingrese nuevamente el numero");
             }
-        }while(error);
+        }while(error||option<1||option>4);
         return option;
     }
     
@@ -47,23 +47,23 @@ public class Interfaz {
         String resultado="";
         switch(i){
             case 1:
-                resultado+=myCalculadora.sumar();
+                resultado="El resultado es "+myCalculadora.sumar();
                 break;
                 
             case 2:
-                resultado+=myCalculadora.restar();
+                resultado="El resultado es "+myCalculadora.restar();
                 break;    
         
             case 3:
                 if(myCalculadora.getNum2()==0){
                     resultado="Error - Division por 0 no aceptada";
                 }else{
-                    resultado+=myCalculadora.dividir();
+                    resultado="El resultado es "+myCalculadora.dividir();
                 }
                 break;
                 
             case 4:
-                resultado+=myCalculadora.multiplicar();
+                resultado="El resultado es "+myCalculadora.multiplicar();
                 break;
         }
         return resultado;
