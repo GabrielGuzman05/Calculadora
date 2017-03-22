@@ -9,10 +9,6 @@ package calculadora;
  *
  * @author Gabriel
  */
-public class TestCalculadora {
+public class CarritoDeCompras {
     
-    public static void main(String []Args){
-        Interfaz newCalculadora = new Interfaz();
-        newCalculadora.iniciar();
-    }
 }

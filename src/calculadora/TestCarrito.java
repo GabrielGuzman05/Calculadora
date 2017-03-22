@@ -9,10 +9,6 @@ package calculadora;
  *
  * @author Gabriel
  */
-public class TestPGA {
+public class TestCarrito {
     
-    public static void main(String [] Args){
-        MaquinaPGA mymachine = new MaquinaPGA();
-        mymachine.iniciar();
-    }
 }
