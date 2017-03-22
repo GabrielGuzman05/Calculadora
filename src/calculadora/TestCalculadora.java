@@ -10,8 +10,9 @@ package calculadora;
  * @author Gabriel
  */
 public class TestCalculadora {
-    static Interfaz newCalculadora = new Interfaz();
+    
     public static void main(String []Args){
+        Interfaz newCalculadora = new Interfaz();
         newCalculadora.iniciar();
     }
 }

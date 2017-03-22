@@ -10,8 +10,9 @@ package calculadora;
  * @author Gabriel
  */
 public class TestPGA {
-   static MaquinaPGA mymachine = new MaquinaPGA();
+    
     public static void main(String [] Args){
+        MaquinaPGA mymachine = new MaquinaPGA();
         mymachine.iniciar();
     }
 }

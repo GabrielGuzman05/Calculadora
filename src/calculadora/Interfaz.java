@@ -11,8 +11,8 @@ import java.util.InputMismatchException;
  * @author Gabriel
  */
 public class Interfaz {
-    static Calculadora myCalculadora = new Calculadora();
-    public static void iniciar() {
+    Calculadora myCalculadora = new Calculadora();
+    public void iniciar() {
         System.out.println("Ingrese dos numeros");
         myCalculadora.setNum1(enterNumber());
         myCalculadora.setNum2(enterNumber());
@@ -27,7 +27,7 @@ public class Interfaz {
         System.out.println(resultado);
     }
     
-    public static int chooseOperation(){
+    public int chooseOperation(){
         int option=0;
         boolean error;
         do{
@@ -43,7 +43,7 @@ public class Interfaz {
         return option;
     }
     
-    public static String callOperation(int i){
+    public String callOperation(int i){
         String resultado="";
         switch(i){
             case 1:
@@ -69,7 +69,7 @@ public class Interfaz {
         return resultado;
     }
     
-    public static double enterNumber(){
+    public double enterNumber(){
         double numero=0;
         boolean error;
         do{

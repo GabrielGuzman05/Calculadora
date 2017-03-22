@@ -38,7 +38,7 @@ public class MaquinaPGA {
         }
     }
     
-    public double ingresarDatoDecimal(){
+    public double ingresarDatoDecimal(){ //corresponde a ingresar el promedio de una asignatura
         double numero=0;
         boolean error;
         do{
@@ -50,7 +50,7 @@ public class MaquinaPGA {
                 error=true;
                 System.out.println("Error - Por favor ingrese nuevamente el numero");
             }
-        }while(error);
+        }while(error||numero<(0.1));
         return numero;
     }
     
@@ -66,7 +66,7 @@ public class MaquinaPGA {
                 error=true;
                 System.out.println("Error - Por favor ingrese nuevamente el numero");
             }
-        }while(error);
+        }while(error||numero<1);
         return numero;
     }
     
