@@ -10,5 +10,8 @@ package calculadora;
  * @author Gabriel
  */
 public class TestCarrito {
-    
+    public static void main(String [] Args){
+        CarritoDeCompras myCarrito = new CarritoDeCompras();
+        myCarrito.iniciar();
+    }
 }
