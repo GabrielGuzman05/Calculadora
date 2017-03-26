@@ -12,10 +12,10 @@ import java.util.InputMismatchException;
  * @author Gabriel
  */
 public class MaquinaPGA {
-    double[] promedios;
-    double[] horasAsignaturas;
-    double PGA;
-    int THS;
+    private double[] promedios;
+    private double[] horasAsignaturas;
+    private double PGA;
+    private int THS;
     Calculadora myCalculadora = new Calculadora();
     
     public void iniciar(){
